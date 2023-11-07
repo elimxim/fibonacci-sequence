@@ -1,4 +1,4 @@
-# Fibonacci sequence
+# Fibonacci Sequence
 
 The JFibonacci Sequence is the series of numbers:
 
