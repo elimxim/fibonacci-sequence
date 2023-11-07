@@ -1,4 +1,4 @@
-# JFibonacci sequence
+# Fibonacci sequence
 
 The JFibonacci Sequence is the series of numbers:
 
@@ -13,7 +13,7 @@ The next number is found by adding up the two numbers before it:
 - the 5 is (2+3),
 - and so on!
 
-The JFibonacci Sequence can be written as a "Rule".
+The Fibonacci Sequence can be written as a "Rule".
 
 <p style="color:steelblue"><b>The Rule is x<sub>n</sub> = x<sub>n−1</sub> + x<sub>n−2</sub></b><p>
 
