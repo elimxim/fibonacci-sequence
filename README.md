@@ -26,6 +26,3 @@ where:
 ---
 
 *The above material is taken from the [Math is Fun](https://www.mathsisfun.com/numbers/fibonacci-sequence.html)*
-
----
-
