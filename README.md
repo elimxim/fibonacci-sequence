@@ -15,6 +15,16 @@ The next number is found by adding up the two numbers before it:
 
 The Fibonacci Sequence can be written as a "Rule".
 
+First, the terms are numbered from 0 onwards like this:
+
+| n             | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7  | 8  | 9  | ... |
+|---------------|---|---|---|---|---|---|---|----|----|----|-----|
+| x<sub>n</sub> | 0 | 1 | 1 | 2 | 3 | 5 | 8 | 13 | 21 | 34 | ... |
+
+So term number 6 is called x<sub>6</sub> (which equals 8).
+
+So we can write the rule:
+
 <p style="color:steelblue"><b>The Rule is x<sub>n</sub> = x<sub>n−1</sub> + x<sub>n−2</sub></b><p>
 
 where:

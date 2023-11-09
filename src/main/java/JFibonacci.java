@@ -4,7 +4,7 @@ public class JFibonacci {
 
     /**
      * Implementation of a loop that starts
-     * from the first Fibonacci number of 0
+     * from the zero Fibonacci number of 0
      */
     int impl1(int number) {
         int curr = 0;
@@ -25,7 +25,7 @@ public class JFibonacci {
      * that prevent calculating of the next Fibonacci number
      * on the last iteration
      */
-    int impl1o1(int number) {
+    int impl1o(int number) {
         int curr = 0;
         int next = 1;
 
@@ -34,7 +34,7 @@ public class JFibonacci {
 
             curr = next;
 
-            if (i == number - 1) {
+            if (i < number - 1) {
                 next += prev;
             }
         }
@@ -43,11 +43,10 @@ public class JFibonacci {
     }
 
     /**
-     * Optimization of implementation {@code impl_1}
-     * that prevent calculating of the next Fibonacci number
-     * on the last iteration
+     * Implementation of a loop that starts
+     * from the first Fibonacci number of 1
      */
-    int impl1o2(int number) {
+    int impl2(int number) {
         int curr = 0;
         int next = 1;
 
@@ -69,7 +68,7 @@ public class JFibonacci {
      * Implementation of a loop that starts
      * from the second Fibonacci number of 1
      */
-    int impl2(int number) {
+    int impl3(int number) {
         int prev = 0;
         int curr = 1;
 
@@ -88,9 +87,9 @@ public class JFibonacci {
     }
 
     /**
-     * Variation of implementation {@code imp2}
+     * Variation of implementation {@code imp3}
      */
-    int impl2v(int number) {
+    int impl3v(int number) {
         int prev = 0;
         int curr = 1;
 
@@ -112,7 +111,7 @@ public class JFibonacci {
         var fib = new JFibonacci();
 
         IntStream.rangeClosed(0, 9).forEach(n ->
-                System.out.println(n + " number of Fibonacci is " + fib.impl2v(n))
+                System.out.println(n + " number of Fibonacci is " + fib.impl1(n))
         );
     }
 }
