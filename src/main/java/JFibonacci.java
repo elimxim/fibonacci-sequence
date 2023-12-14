@@ -1,117 +1,142 @@
 import java.util.stream.IntStream;
 
-public class JFibonacci {
+class JFibonacci {
 
     /**
      * Implementation of a loop that starts
      * from the zero Fibonacci number of 0
      */
-    int impl1(int number) {
-        int curr = 0;
-        int next = 1;
+    static class LoopV1 {
+        int get(int number) {
+            int curr = 0;
+            int next = 1;
 
-        for (int i = 0; i < number; i++) {
-            int prev = curr;
+            for (int i = 0; i < number; i++) {
+                int prev = curr;
 
-            curr = next;
-            next += prev;
+                curr = next;
+                next += prev;
+            }
+
+            return curr;
         }
-
-        return curr;
     }
 
     /**
-     * Optimization of implementation {@code impl_1}
+     * Optimization of implementation {@code LoopV1}
      * that prevent calculating of the next Fibonacci number
      * on the last iteration
      */
-    int impl1o(int number) {
-        int curr = 0;
-        int next = 1;
+    static class LoopV1Improved {
+        int get(int number) {
+            int curr = 0;
+            int next = 1;
 
-        for (int i = 0; i < number; i++) {
-            int prev = curr;
+            for (int i = 0; i < number; i++) {
+                int prev = curr;
 
-            curr = next;
+                curr = next;
 
-            if (i < number - 1) {
-                next += prev;
+                if (i < number - 1) {
+                    next += prev;
+                }
             }
-        }
 
-        return curr;
+            return curr;
+        }
     }
 
     /**
      * Implementation of a loop that starts
      * from the first Fibonacci number of 1
      */
-    int impl2(int number) {
-        int curr = 0;
-        int next = 1;
+    static class LoopV2 {
+        int get(int number) {
+            int curr = 0;
+            int next = 1;
 
-        if (number == 0) {
-            return curr;
+            if (number == 0) {
+                return curr;
+            }
+
+            for (int i = 0; i < number - 1; i++) {
+                int prev = curr;
+
+                curr = next;
+                next += prev;
+            }
+
+            return next;
         }
-
-        for (int i = 0; i < number - 1; i++) {
-            int prev = curr;
-
-            curr = next;
-            next += prev;
-        }
-
-        return next;
     }
 
     /**
      * Implementation of a loop that starts
      * from the second Fibonacci number of 1
      */
-    int impl3(int number) {
-        int prev = 0;
-        int curr = 1;
+    static class LoopV3 {
+        int get(int number) {
+            int prev = 0;
+            int curr = 1;
 
-        if (number == 0) {
-            return prev;
+            if (number == 0) {
+                return prev;
+            }
+
+            for (int i = 2; i <= number; i++) {
+                int next = prev + curr;
+
+                prev = curr;
+                curr = next;
+            }
+
+            return curr;
         }
-
-        for (int i = 2; i <= number; i++) {
-            int next = prev + curr;
-
-            prev = curr;
-            curr = next;
-        }
-
-        return curr;
     }
 
     /**
      * Variation of implementation {@code imp3}
      */
-    int impl3v(int number) {
-        int prev = 0;
-        int curr = 1;
+    static class LoopV3Variation {
+        int get(int number) {
+            int prev = 0;
+            int curr = 1;
 
-        if (number == 0) {
-            return prev;
+            if (number == 0) {
+                return prev;
+            }
+
+            for (int i = 0; i < number - 1; i++) {
+                int next = prev + curr;
+
+                prev = curr;
+                curr = next;
+            }
+
+            return curr;
         }
+    }
 
-        for (int i = 0; i < number - 1; i++) {
-            int next = prev + curr;
+    /**
+     * Implementation of a recursion
+     */
+    static class RecursionV1 {
+        int get(int number) {
+            if (number == 0) {
+                return 0;
+            } else if (number == 1) {
+                return 1;
+            }
 
-            prev = curr;
-            curr = next;
+            return get(number - 1) + get(number - 2);
         }
-
-        return curr;
     }
 
     public static void main(String[] args) {
-        var fib = new JFibonacci();
+        var fib = new RecursionV1();
 
         IntStream.rangeClosed(0, 9).forEach(n ->
-                System.out.println(n + " number of Fibonacci is " + fib.impl1(n))
+                System.out.println(n + " number of Fibonacci is " + fib.get(n))
         );
     }
 }
